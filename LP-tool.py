@@ -4,9 +4,6 @@ from deep_translator import GoogleTranslator
 from gtts import gTTS
 import os
 
-# -----------------------------
-# Translate Function
-# -----------------------------
 def translate_text():
     text = input_text.get("1.0", tk.END).strip()
 
@@ -30,9 +27,6 @@ def translate_text():
         messagebox.showerror("Error", str(e))
 
 
-# -----------------------------
-# Copy Function
-# -----------------------------
 def copy_text():
     translated = output_text.get("1.0", tk.END).strip()
 
@@ -42,9 +36,6 @@ def copy_text():
         messagebox.showinfo("Copied", "Text copied to clipboard!")
 
 
-# -----------------------------
-# Text To Speech Function
-# -----------------------------
 def speak_text():
     translated = output_text.get("1.0", tk.END).strip()
 
@@ -62,9 +53,6 @@ def speak_text():
         messagebox.showerror("Error", str(e))
 
 
-# -----------------------------
-# Supported Languages
-# -----------------------------
 languages = {
     "English": "en",
     "French": "fr",
@@ -80,9 +68,6 @@ languages = {
 }
 
 
-# -----------------------------
-# Main Window
-# -----------------------------
 root = tk.Tk()
 root.title("Language Translation Tool")
 root.geometry("700x600")
@@ -95,17 +80,11 @@ title = tk.Label(
 )
 title.pack(pady=10)
 
-# -----------------------------
-# Input Text
-# -----------------------------
 tk.Label(root, text="Enter Text:").pack()
 
 input_text = tk.Text(root, height=8, width=70)
 input_text.pack(pady=5)
 
-# -----------------------------
-# Language Selection
-# -----------------------------
 frame = tk.Frame(root)
 frame.pack(pady=10)
 
@@ -131,9 +110,6 @@ target_combo = ttk.Combobox(
 target_combo.grid(row=1, column=1)
 target_combo.set("Bengali")
 
-# -----------------------------
-# Translate Button
-# -----------------------------
 translate_btn = tk.Button(
     root,
     text="Translate",
@@ -143,17 +119,11 @@ translate_btn = tk.Button(
 )
 translate_btn.pack(pady=10)
 
-# -----------------------------
-# Output Text
-# -----------------------------
 tk.Label(root, text="Translated Text:").pack()
 
 output_text = tk.Text(root, height=8, width=70)
 output_text.pack(pady=5)
 
-# -----------------------------
-# Buttons
-# -----------------------------
 button_frame = tk.Frame(root)
 button_frame.pack(pady=10)
 
@@ -173,7 +143,4 @@ speak_btn = tk.Button(
 )
 speak_btn.grid(row=0, column=1, padx=10)
 
-# -----------------------------
-# Run Program
-# -----------------------------
 root.mainloop()
